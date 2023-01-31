@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.imgWrap{
+	position: relative;
+}
+.photo, .post{
+	width: 290px;
+	padding: 15px;
+	border: 2px solid;
+}
+.like{
+	/* position: absolute;
+	top: 25px;
+	left: 25px; */
+}
+.dib{
+	display: inline-block;
+}
+.m0a{
+	margin: 0 auto;
+}
+.c{
+	position: relative;
+	left: 50%;
+	transform: translate(-50%)
+}

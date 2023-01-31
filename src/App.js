@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react"
+import Album from "./components/Album"
+import Post from "./components/Post"
+import { Link, Routes, Route } from "react-router-dom"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [photos, photosSet] = useState([])
+	const [posts, postsSet] = useState([])
+
+	// ! photos
+	useEffect(() => {
+		fetch(`https://jsonplaceholder.typicode.com/albums`)
+			.then(response => response.json())
+			.then(json => {
+				photosSet(json)
+			})
+	}, [])
+	// ? photos
+
+	// ! posts
+	useEffect(() => {
+		fetch(`https://jsonplaceholder.typicode.com/posts`)
+			.then(response => response.json())
+			.then(json => {
+				postsSet(json)
+			})
+	}, [])
+	// ? posts
+
+	const photos_ = photos.map(imgObj => <Album imgObj={imgObj} />)
+	const posts_ = posts.map(postObj => <Post postObj={postObj} />)
+
+	return (
+		<>
+			<nav className="dib c">
+				<Link to="/photos">ALBUMS</Link>
+				&nbsp;
+				<Link to="/posts">POSTS</Link>
+			</nav>
+
+			<Routes>
+				<Route path="/photos" element={photos_} />
+				<Route path="/posts" element={posts_} />
+			</Routes>
+		</>
+	);
 }
 
 export default App;
