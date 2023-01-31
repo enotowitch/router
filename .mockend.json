@@ -1,5 +1,14 @@
 {
-  "User": {
-    "title": { "string": {} }
+  "Post": {
+    "title": { "string": {} },
+    "id": {
+      "int": {
+        "min": 0,
+        "max": 100
+      }
+    },
+    "isLiked": {
+      "boolean": {}
+    }
   }
 }
