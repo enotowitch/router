@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import { BrowserRouter as Router } from "react-router-dom"
+import { ContextProvider } from './Context'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-	<Router>
-		<React.StrictMode>
+	<ContextProvider>
+		<Router>
+			{/* <React.StrictMode> todo */}
 			<App />
-		</React.StrictMode>
-	</Router>
+			{/* </React.StrictMode> todo */}
+		</Router>
+	</ContextProvider>
 )
