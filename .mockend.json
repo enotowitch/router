@@ -1,0 +1,20 @@
+{
+  "Post": {
+    "_": {
+      "items": 10
+    },
+    "title": { "string": {} },
+    "id": {
+      "int": {
+        "min": 0,
+        "max": 20
+      }
+    },
+    "isLiked": {
+      "boolean": {}
+    },
+    "url": {
+      "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/270"
+    }
+  }
+}
